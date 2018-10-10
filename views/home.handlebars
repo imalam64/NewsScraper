@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="jumbotron bg-primary mt-1">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1> Here's what's going on in LA!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-9">
+                <button type="button" class="btn btn-secondary mt-2" id="refresh">Refresh articles</button>
+            </div>
+        </div>
+    </div>
+    {{#each articles}}
+        <div class="article-section border border-secondary rounded my-4 p-2">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2><a href={{link}} target="_blank">{{title}}</a></h2>
+                    <p class="text-dark">{{summary}}</p>     
+                    <p class="text-dark">{{byline}}</p>
+                    <p><a href={{link}} target="_blank">{{link}}</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 offset-2">
+                    <div class="comments rounded">
+                        <h3 class="text-center">Notes</h3>
+                        {{#each comments}}
+                            <div class="single-comment rounded bg-light m-2 px-2">
+                                <p class="text-dark">{{name}}</p>
+                                <p class="text-dark">{{body}}</p>
+                                <p class="text-dark">{{date}}</p>
+                            </div>
+                        {{/each}}
+                        <h4 class="text-center">Post A Note:</h4>
+                        <form class="px-2 m-2" id={{_id}}>
+                                    <textarea class="form-control comment"></textarea>
+                            <button type="submit" class="submit btn my-2 offset-8">Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

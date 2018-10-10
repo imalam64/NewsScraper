@@ -4,7 +4,7 @@ const handlebars = require("express-handlebars");
 const bodyparser = require("body-parser")
 
 
-const router = require('./router/routes');
+const routes = require('./router/routes');
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,7 +25,7 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 //Use the routes
-app.use('/', router);
+app.use('/', routes);
 
 // Start the server
 app.listen(PORT, function() {
